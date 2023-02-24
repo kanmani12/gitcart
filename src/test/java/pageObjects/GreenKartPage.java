@@ -15,6 +15,7 @@ public class GreenKartPage {
 	By ProductName=By.xpath("//div[@class='products-wrapper']/div/div/h4");
 	By productincrement=By.cssSelector(".increment");
 	By AddToCart=By.xpath("//button[contains(text(),'ADD TO CART')]");
+	system.out.println("Change");
 	public void SearchItem(String Name)
 	{
 		driver.findElement(Search).sendKeys(Name);
