@@ -7,6 +7,12 @@ pipeline{
                     git branch: 'main', url: 'https://github.com/kanmani12/gitcart.git'
                 }
             }
+            stage('maven-build')
+            {
+                steps{
+                    mvn test
+                }
+            }
         }
     
 }
