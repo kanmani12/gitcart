@@ -1,0 +1,12 @@
+pipeline{
+    agent any
+        stages{
+          stage('git')
+            {
+                steps{
+                    git branch: 'main', url: 'https://github.com/kanmani12/gitcart.git'
+                }
+            }
+        }
+    
+}
