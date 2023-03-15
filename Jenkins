@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment
     {
-        PATH="/apache-maven-3.8.7-bin/apache-maven-3.8.7/bin:$PATH"
+        PATH="%MAVEN_HOME%/apache-maven-3.8.7-bin/apache-maven-3.8.7/bin:$PATH"
     }
         stages{
           stage('git')
