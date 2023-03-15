@@ -1,22 +1,32 @@
-pipeline{
+pipeline {
     agent any
-    environment
-    {
-        PATH="E:\Kanmani-CIPL1292\apache-maven-3.8.7-bin\apache-maven-3.8.7:$PATH"
-    }
-        stages{
-          stage('git')
-            {
-                steps{
-                    git branch: 'main', url: 'https://github.com/kanmani12/gitcart.git'
-                }
-            }
-            stage('maven-build')
-            {
-                steps{
-                    mvn test
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven') {
+                    sh 'mvn clean compile'
                 }
             }
         }
-    
+
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'maven') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
+    }
 }
